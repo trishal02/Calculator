@@ -1,0 +1,724 @@
+/* ==========================================================================
+   Design System & Variables
+   ========================================================================== */
+:root {
+  /* Font Family */
+  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'Share Tech Mono', monospace;
+
+  /* Raw Colors - Light Mode */
+  --bg-gradient-light: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --circle-1-light: radial-gradient(circle, rgba(238,174,202,0.6) 0%, rgba(148,187,233,0) 70%);
+  --circle-2-light: radial-gradient(circle, rgba(148,187,233,0.6) 0%, rgba(238,174,202,0) 70%);
+  --circle-3-light: radial-gradient(circle, rgba(255,207,150,0.5) 0%, rgba(148,187,233,0) 70%);
+  
+  --card-bg-light: rgba(255, 255, 255, 0.45);
+  --card-border-light: rgba(255, 255, 255, 0.5);
+  --text-primary-light: #2c3e50;
+  --text-secondary-light: #7f8c8d;
+  
+  --key-num-bg-light: rgba(255, 255, 255, 0.35);
+  --key-num-hover-light: rgba(255, 255, 255, 0.6);
+  --key-num-text-light: #2c3e50;
+  
+  --key-op-bg-light: rgba(255, 159, 67, 0.25);
+  --key-op-hover-light: rgba(255, 159, 67, 0.45);
+  --key-op-text-light: #d35400;
+  
+  --key-sci-bg-light: rgba(148, 187, 233, 0.25);
+  --key-sci-hover-light: rgba(148, 187, 233, 0.45);
+  --key-sci-text-light: #2980b9;
+
+  --key-eq-bg-light: linear-gradient(135deg, #ff9f43 0%, #ff5252 100%);
+  --key-eq-text-light: #ffffff;
+  --key-eq-shadow-light: rgba(255, 82, 82, 0.3);
+
+  --key-clear-bg-light: rgba(255, 107, 107, 0.2);
+  --key-clear-hover-light: rgba(255, 107, 107, 0.35);
+  --key-clear-text-light: #e74c3c;
+
+  --panel-bg-light: rgba(255, 255, 255, 0.9);
+  --shadow-light: 0 10px 40px 0 rgba(31, 38, 135, 0.08);
+
+  /* Raw Colors - Dark Mode */
+  --bg-gradient-dark: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+  --circle-1-dark: radial-gradient(circle, rgba(99,102,241,0.25) 0%, rgba(99,102,241,0) 70%);
+  --circle-2-dark: radial-gradient(circle, rgba(168,85,247,0.25) 0%, rgba(168,85,247,0) 70%);
+  --circle-3-dark: radial-gradient(circle, rgba(236,72,153,0.15) 0%, rgba(236,72,153,0) 70%);
+
+  --card-bg-dark: rgba(15, 23, 42, 0.35);
+  --card-border-dark: rgba(255, 255, 255, 0.07);
+  --text-primary-dark: #f8fafc;
+  --text-secondary-dark: #94a3b8;
+
+  --key-num-bg-dark: rgba(255, 255, 255, 0.03);
+  --key-num-hover-dark: rgba(255, 255, 255, 0.08);
+  --key-num-text-dark: #f1f5f9;
+
+  --key-op-bg-dark: rgba(249, 115, 22, 0.15);
+  --key-op-hover-dark: rgba(249, 115, 22, 0.28);
+  --key-op-text-dark: #fdba74;
+
+  --key-sci-bg-dark: rgba(99, 102, 241, 0.15);
+  --key-sci-hover-dark: rgba(99, 102, 241, 0.28);
+  --key-sci-text-dark: #c7d2fe;
+
+  --key-eq-bg-dark: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  --key-eq-text-dark: #ffffff;
+  --key-eq-shadow-dark: rgba(168, 85, 247, 0.4);
+
+  --key-clear-bg-dark: rgba(239, 68, 68, 0.15);
+  --key-clear-hover-dark: rgba(239, 68, 68, 0.25);
+  --key-clear-text-dark: #fca5a5;
+
+  --panel-bg-dark: rgba(15, 23, 42, 0.92);
+  --shadow-dark: 0 10px 40px 0 rgba(0, 0, 0, 0.4);
+
+  /* Set defaults for browsers that don't support light-dark() */
+  --bg-gradient: var(--bg-gradient-light);
+  --circle-1: var(--circle-1-light);
+  --circle-2: var(--circle-2-light);
+  --circle-3: var(--circle-3-light);
+  --card-bg: var(--card-bg-light);
+  --card-border: var(--card-border-light);
+  --text-primary: var(--text-primary-light);
+  --text-secondary: var(--text-secondary-light);
+  --key-num-bg: var(--key-num-bg-light);
+  --key-num-hover: var(--key-num-hover-light);
+  --key-num-text: var(--key-num-text-light);
+  --key-op-bg: var(--key-op-bg-light);
+  --key-op-hover: var(--key-op-hover-light);
+  --key-op-text: var(--key-op-text-light);
+  --key-sci-bg: var(--key-sci-bg-light);
+  --key-sci-hover: var(--key-sci-hover-light);
+  --key-sci-text: var(--key-sci-text-light);
+  --key-eq-bg: var(--key-eq-bg-light);
+  --key-eq-text: var(--key-eq-text-light);
+  --key-eq-shadow: var(--key-eq-shadow-light);
+  --key-clear-bg: var(--key-clear-bg-light);
+  --key-clear-hover: var(--key-clear-hover-light);
+  --key-clear-text: var(--key-clear-text-light);
+  --panel-bg: var(--panel-bg-light);
+  --shadow: var(--shadow-light);
+
+  /* Browser native scheme mapping */
+  color-scheme: light dark;
+}
+
+/* Fallback for browsers without light-dark support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-gradient: var(--bg-gradient-dark);
+    --circle-1: var(--circle-1-dark);
+    --circle-2: var(--circle-2-dark);
+    --circle-3: var(--circle-3-dark);
+    --card-bg: var(--card-bg-dark);
+    --card-border: var(--card-border-dark);
+    --text-primary: var(--text-primary-dark);
+    --text-secondary: var(--text-secondary-dark);
+    --key-num-bg: var(--key-num-bg-dark);
+    --key-num-hover: var(--key-num-hover-dark);
+    --key-num-text: var(--key-num-text-dark);
+    --key-op-bg: var(--key-op-bg-dark);
+    --key-op-hover: var(--key-op-hover-dark);
+    --key-op-text: var(--key-op-text-dark);
+    --key-sci-bg: var(--key-sci-bg-dark);
+    --key-sci-hover: var(--key-sci-hover-dark);
+    --key-sci-text: var(--key-sci-text-dark);
+    --key-eq-bg: var(--key-eq-bg-dark);
+    --key-eq-text: var(--key-eq-text-dark);
+    --key-eq-shadow: var(--key-eq-shadow-dark);
+    --key-clear-bg: var(--key-clear-bg-dark);
+    --key-clear-hover: var(--key-clear-hover-dark);
+    --key-clear-text: var(--key-clear-text-dark);
+    --panel-bg: var(--panel-bg-dark);
+    --shadow: var(--shadow-dark);
+  }
+}
+
+/* Explicit custom HTML attribute theme overrides (via user toggle button) */
+[data-theme="light"] {
+  --bg-gradient: var(--bg-gradient-light);
+  --circle-1: var(--circle-1-light);
+  --circle-2: var(--circle-2-light);
+  --circle-3: var(--circle-3-light);
+  --card-bg: var(--card-bg-light);
+  --card-border: var(--card-border-light);
+  --text-primary: var(--text-primary-light);
+  --text-secondary: var(--text-secondary-light);
+  --key-num-bg: var(--key-num-bg-light);
+  --key-num-hover: var(--key-num-hover-light);
+  --key-num-text: var(--key-num-text-light);
+  --key-op-bg: var(--key-op-bg-light);
+  --key-op-hover: var(--key-op-hover-light);
+  --key-op-text: var(--key-op-text-light);
+  --key-sci-bg: var(--key-sci-bg-light);
+  --key-sci-hover: var(--key-sci-hover-light);
+  --key-sci-text: var(--key-sci-text-light);
+  --key-eq-bg: var(--key-eq-bg-light);
+  --key-eq-text: var(--key-eq-text-light);
+  --key-eq-shadow: var(--key-eq-shadow-light);
+  --key-clear-bg: var(--key-clear-bg-light);
+  --key-clear-hover: var(--key-clear-hover-light);
+  --key-clear-text: var(--key-clear-text-light);
+  --panel-bg: var(--panel-bg-light);
+  --shadow: var(--shadow-light);
+}
+
+[data-theme="dark"] {
+  --bg-gradient: var(--bg-gradient-dark);
+  --circle-1: var(--circle-1-dark);
+  --circle-2: var(--circle-2-dark);
+  --circle-3: var(--circle-3-dark);
+  --card-bg: var(--card-bg-dark);
+  --card-border: var(--card-border-dark);
+  --text-primary: var(--text-primary-dark);
+  --text-secondary: var(--text-secondary-dark);
+  --key-num-bg: var(--key-num-bg-dark);
+  --key-num-hover: var(--key-num-hover-dark);
+  --key-num-text: var(--key-num-text-dark);
+  --key-op-bg: var(--key-op-bg-dark);
+  --key-op-hover: var(--key-op-hover-dark);
+  --key-op-text: var(--key-op-text-dark);
+  --key-sci-bg: var(--key-sci-bg-dark);
+  --key-sci-hover: var(--key-sci-hover-dark);
+  --key-sci-text: var(--key-sci-text-dark);
+  --key-eq-bg: var(--key-eq-bg-dark);
+  --key-eq-text: var(--key-eq-text-dark);
+  --key-eq-shadow: var(--key-eq-shadow-dark);
+  --key-clear-bg: var(--key-clear-bg-dark);
+  --key-clear-hover: var(--key-clear-hover-dark);
+  --key-clear-text: var(--key-clear-text-dark);
+  --panel-bg: var(--panel-bg-dark);
+  --shadow: var(--shadow-dark);
+}
+
+/* modern light-dark() CSS declaration */
+@supports (color: light-dark(white, black)) {
+  :root {
+    --bg-gradient: light-dark(var(--bg-gradient-light), var(--bg-gradient-dark));
+    --circle-1: light-dark(var(--circle-1-light), var(--circle-1-dark));
+    --circle-2: light-dark(var(--circle-2-light), var(--circle-2-dark));
+    --circle-3: light-dark(var(--circle-3-light), var(--circle-3-dark));
+    --card-bg: light-dark(var(--card-bg-light), var(--card-bg-dark));
+    --card-border: light-dark(var(--card-border-light), var(--card-border-dark));
+    --text-primary: light-dark(var(--text-primary-light), var(--text-primary-dark));
+    --text-secondary: light-dark(var(--text-secondary-light), var(--text-secondary-dark));
+    --key-num-bg: light-dark(var(--key-num-bg-light), var(--key-num-bg-dark));
+    --key-num-hover: light-dark(var(--key-num-hover-light), var(--key-num-hover-dark));
+    --key-num-text: light-dark(var(--key-num-text-light), var(--key-num-text-dark));
+    --key-op-bg: light-dark(var(--key-op-bg-light), var(--key-op-bg-dark));
+    --key-op-hover: light-dark(var(--key-op-hover-light), var(--key-op-hover-dark));
+    --key-op-text: light-dark(var(--key-op-text-light), var(--key-op-text-dark));
+    --key-sci-bg: light-dark(var(--key-sci-bg-light), var(--key-sci-bg-dark));
+    --key-sci-hover: light-dark(var(--key-sci-hover-light), var(--key-sci-hover-dark));
+    --key-sci-text: light-dark(var(--key-sci-text-light), var(--key-sci-text-dark));
+    --key-eq-bg: light-dark(var(--key-eq-bg-light), var(--key-eq-bg-dark));
+    --key-eq-text: light-dark(var(--key-eq-text-light), var(--key-eq-text-dark));
+    --key-eq-shadow: light-dark(var(--key-eq-shadow-light), var(--key-eq-shadow-dark));
+    --key-clear-bg: light-dark(var(--key-clear-bg-light), var(--key-clear-bg-dark));
+    --key-clear-hover: light-dark(var(--key-clear-hover-light), var(--key-clear-hover-dark));
+    --key-clear-text: light-dark(var(--key-clear-text-light), var(--key-clear-text-dark));
+    --panel-bg: light-dark(var(--panel-bg-light), var(--panel-bg-dark));
+    --shadow: light-dark(var(--shadow-light), var(--shadow-dark));
+  }
+}
+
+/* ==========================================================================
+   Global & Layout Styles
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-gradient);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  transition: background 0.4s ease;
+  color: var(--text-primary);
+}
+
+/* Ambient background shapes for glassmorphic depth */
+.background-decorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.circle-1 {
+  width: 45vw;
+  height: 45vw;
+  top: -15vw;
+  left: -10vw;
+  background: var(--circle-1);
+}
+
+.circle-2 {
+  width: 40vw;
+  height: 40vw;
+  bottom: -10vw;
+  right: -5vw;
+  background: var(--circle-2);
+}
+
+.circle-3 {
+  width: 25vw;
+  height: 25vw;
+  top: 30%;
+  left: 60%;
+  background: var(--circle-3);
+}
+
+/* ==========================================================================
+   Calculator Container
+   ========================================================================== */
+.calculator-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 380px;
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--card-border);
+  border-radius: 28px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: max-width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.4s ease, border 0.4s ease, box-shadow 0.4s ease;
+  overflow: hidden;
+}
+
+/* Expand calculator width when scientific mode is open */
+.calculator-container.scientific-active {
+  max-width: 680px;
+}
+
+/* Header toolbar styling */
+.calc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.calc-logo {
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.calc-logo span {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.calc-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Buttons inside header toolbar */
+.icon-btn, .text-toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  transition: all 0.2s ease;
+}
+
+.icon-btn:hover, .text-toggle-btn:hover {
+  color: var(--text-primary);
+  background: var(--key-num-hover);
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* Sun/Moon state controls based on active theme */
+html[data-theme="dark"] .sun-icon {
+  display: block;
+}
+html[data-theme="dark"] .moon-icon {
+  display: none;
+}
+html[data-theme="light"] .sun-icon {
+  display: none;
+}
+html[data-theme="light"] .moon-icon {
+  display: block;
+}
+
+/* Default state matching preference if user hasn't explicitly selected */
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .sun-icon { display: block; }
+  html:not([data-theme="light"]) .moon-icon { display: none; }
+}
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .sun-icon { display: none; }
+  html:not([data-theme="dark"]) .moon-icon { display: block; }
+}
+
+.text-toggle-btn {
+  border-radius: 18px;
+  width: auto;
+  padding: 0 10px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  border: 1px solid var(--card-border);
+}
+
+.text-toggle-btn.active {
+  background: var(--key-sci-bg);
+  color: var(--key-sci-text);
+  border-color: transparent;
+}
+
+/* ==========================================================================
+   Calculator Display
+   ========================================================================== */
+.calc-display-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  min-height: 100px;
+  padding: 10px 8px;
+  word-wrap: break-word;
+  word-break: break-all;
+  text-align: right;
+  border-radius: 16px;
+}
+
+.display-formula {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  min-height: 24px;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.display-current {
+  font-family: var(--font-sans);
+  font-size: 2.8rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+/* Hide scrollbars for display output */
+.display-current::-webkit-scrollbar {
+  display: none;
+}
+
+/* ==========================================================================
+   Keypads & Buttons
+   ========================================================================== */
+.calc-keypad-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: flex-direction 0.3s ease;
+}
+
+/* When scientific mode is active, put basic and scientific grids side by side */
+.calculator-container.scientific-active .calc-keypad-wrapper {
+  flex-direction: row;
+}
+
+.calculator-container.scientific-active #scientific-keys {
+  flex: 1.1;
+}
+
+.calculator-container.scientific-active .basic-keys-grid {
+  flex: 1;
+}
+
+/* Grids */
+.basic-keys-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.scientific-keys-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.scientific-keys-grid.hidden {
+  display: none;
+}
+
+/* Key Buttons base class */
+.key {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: 500;
+  height: 62px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              color 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.key:active {
+  transform: scale(0.93);
+}
+
+/* Key Classes overrides */
+.btn-num {
+  background: var(--key-num-bg);
+  color: var(--key-num-text);
+  border: 1px solid var(--card-border);
+}
+
+.btn-num:hover {
+  background: var(--key-num-hover);
+}
+
+.btn-operator {
+  background: var(--key-op-bg);
+  color: var(--key-op-text);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.btn-operator:hover {
+  background: var(--key-op-hover);
+}
+
+.btn-sci {
+  background: var(--key-sci-bg);
+  color: var(--key-sci-text);
+  font-size: 1rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.btn-sci:hover {
+  background: var(--key-sci-hover);
+}
+
+.btn-action {
+  background: var(--key-num-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--card-border);
+}
+
+.btn-action:hover {
+  background: var(--key-num-hover);
+}
+
+.btn-clear {
+  background: var(--key-clear-bg);
+  color: var(--key-clear-text);
+  font-weight: 600;
+}
+
+.btn-clear:hover {
+  background: var(--key-clear-hover);
+}
+
+.btn-equals {
+  background: var(--key-eq-bg);
+  color: var(--key-eq-text);
+  grid-column: span 1; /* standard */
+  box-shadow: 0 4px 15px var(--key-eq-shadow);
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.btn-equals:hover {
+  opacity: 0.95;
+  box-shadow: 0 6px 20px var(--key-eq-shadow);
+}
+
+/* When scientific mode is active, we hide the basic backspace to fit things */
+.calculator-container.scientific-active #backspace-basic {
+  display: none;
+}
+.calculator-container.scientific-active .basic-keys-grid button[data-value="0"] {
+  grid-column: span 2;
+}
+
+/* ==========================================================================
+   History Drawer / Panel
+   ========================================================================== */
+.history-panel {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 60px);
+  background: var(--panel-bg);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-top: 1px solid var(--card-border);
+  border-radius: 0 0 28px 28px;
+  z-index: 100;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.history-panel.hidden {
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--card-border);
+  padding-bottom: 10px;
+}
+
+.history-header h3 {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.text-btn {
+  background: none;
+  border: none;
+  color: var(--key-clear-text);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.text-btn:hover {
+  background: var(--key-clear-bg);
+}
+
+.history-list {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-right: 5px;
+}
+
+/* Custom scrollbars for the history list */
+.history-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.history-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.history-list::-webkit-scrollbar-thumb {
+  background: var(--key-num-hover);
+  border-radius: 3px;
+}
+
+.no-history {
+  color: var(--text-secondary);
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.9rem;
+}
+
+.history-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 10px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid transparent;
+}
+
+.history-item:hover {
+  background: var(--key-num-hover);
+  border-color: var(--card-border);
+}
+
+.history-item-formula {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 2px;
+}
+
+.history-item-result {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+@media (max-width: 400px) {
+  .calculator-container {
+    height: 100vh;
+    width: 100vw;
+    max-width: 100% !important;
+    border-radius: 0;
+    padding: 16px;
+  }
+
+  .history-panel {
+    border-radius: 0;
+  }
+}

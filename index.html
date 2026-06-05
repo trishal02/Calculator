@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Glassmorphic Calculator</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Prevent FOUC (Flash of Unstyled Content) for dark/light mode -->
+  <meta name="color-scheme" content="light dark">
+  <script>
+    {
+      const colorScheme = localStorage.getItem("color-scheme");
+      if (colorScheme) {
+        document.querySelector('meta[name="color-scheme"]').content = colorScheme;
+        document.documentElement.setAttribute('data-theme', colorScheme);
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="background-decorations">
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+  </div>
+
+  <main class="calculator-container">
+    <!-- Top toolbar inside calculator -->
+    <header class="calc-header">
+      <div class="calc-logo">
+        <span>NEURAL</span>CALC
+      </div>
+      <div class="calc-controls">
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme">
+          <!-- Moon Icon (for Light mode to switch to Dark) -->
+          <svg class="icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <!-- Sun Icon (for Dark mode to switch to Light) -->
+          <svg class="icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+        <button id="history-toggle" class="icon-btn" aria-label="Toggle History">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="12 8 12 12 14 14"></polyline>
+            <path d="M3.05 11a9 9 0 1 1 .5 4m-.5 5v-5h5"></path>
+          </svg>
+        </button>
+        <button id="mode-toggle" class="text-toggle-btn" aria-label="Toggle Scientific Mode">
+          SCI
+        </button>
+      </div>
+    </header>
+
+    <!-- Calculator Display -->
+    <section class="calc-display-wrapper">
+      <div id="display-formula" class="display-formula"></div>
+      <div id="display-current" class="display-current">0</div>
+    </section>
+
+    <!-- Calculator Buttons Grid -->
+    <section class="calc-keypad-wrapper">
+      <!-- Scientific Keys (hidden by default, shown when SCI is active) -->
+      <div id="scientific-keys" class="scientific-keys-grid hidden">
+        <button class="key btn-sci" data-action="sin">sin</button>
+        <button class="key btn-sci" data-action="cos">cos</button>
+        <button class="key btn-sci" data-action="tan">tan</button>
+        <button class="key btn-sci" data-action="sqrt">√</button>
+        <button class="key btn-sci" data-action="pow">^</button>
+        <button class="key btn-sci" data-action="log">log</button>
+        <button class="key btn-sci" data-action="ln">ln</button>
+        <button class="key btn-sci" data-value="π">π</button>
+        <button class="key btn-sci" data-value="e">e</button>
+        <button class="key btn-sci" data-value="(">(</button>
+        <button class="key btn-sci" data-value=")">)</button>
+        <button class="key btn-sci" data-action="backspace">⌫</button>
+      </div>
+
+      <!-- Basic Keys -->
+      <div class="basic-keys-grid">
+        <!-- Row 1 -->
+        <button class="key btn-clear" data-action="clear">AC</button>
+        <button class="key btn-action" data-value="(" class="basic-paren">(</button>
+        <button class="key btn-action" data-value=")" class="basic-paren">)</button>
+        <button class="key btn-operator" data-value="÷">÷</button>
+        
+        <!-- Row 2 -->
+        <button class="key btn-num" data-value="7">7</button>
+        <button class="key btn-num" data-value="8">8</button>
+        <button class="key btn-num" data-value="9">9</button>
+        <button class="key btn-operator" data-value="×">×</button>
+        
+        <!-- Row 3 -->
+        <button class="key btn-num" data-value="4">4</button>
+        <button class="key btn-num" data-value="5">5</button>
+        <button class="key btn-num" data-value="6">6</button>
+        <button class="key btn-operator" data-value="−">−</button>
+        
+        <!-- Row 4 -->
+        <button class="key btn-num" data-value="1">1</button>
+        <button class="key btn-num" data-value="2">2</button>
+        <button class="key btn-num" data-value="3">3</button>
+        <button class="key btn-operator" data-value="+">+</button>
+        
+        <!-- Row 5 -->
+        <button class="key btn-num" data-value="0">0</button>
+        <button class="key btn-num" data-value=".">.</button>
+        <button class="key btn-action" id="backspace-basic" data-action="backspace">⌫</button>
+        <button class="key btn-equals" data-action="equals">=</button>
+      </div>
+    </section>
+
+    <!-- History Panel (Slide out / Drawer) -->
+    <aside id="history-panel" class="history-panel hidden">
+      <div class="history-header">
+        <h3>History</h3>
+        <button id="clear-history" class="text-btn">Clear All</button>
+      </div>
+      <div id="history-list" class="history-list">
+        <div class="no-history">No calculations yet</div>
+      </div>
+    </aside>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
