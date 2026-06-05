@@ -138,6 +138,7 @@
 
 /* Explicit custom HTML attribute theme overrides (via user toggle button) */
 [data-theme="light"] {
+  color-scheme: light;
   --bg-gradient: var(--bg-gradient-light);
   --circle-1: var(--circle-1-light);
   --circle-2: var(--circle-2-light);
@@ -166,6 +167,7 @@
 }
 
 [data-theme="dark"] {
+  color-scheme: dark;
   --bg-gradient: var(--bg-gradient-dark);
   --circle-1: var(--circle-1-dark);
   --circle-2: var(--circle-2-dark);
