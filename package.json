@@ -5,11 +5,14 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
+    "start": "serve",
+    "dev": "serve",
     "test": "vitest run",
     "lint": "eslint ."
   },
   "devDependencies": {
     "eslint": "^9.3.0",
+    "serve": "^14.2.6",
     "vitest": "^1.6.0"
   }
 }
